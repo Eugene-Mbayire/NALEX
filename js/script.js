@@ -13,14 +13,29 @@
   var yearEl = qs("#year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  /* ---------- Header scroll state ---------- */
+  /* ---------- Header scroll state + back-to-top visibility ---------- */
   var header = qs("#site-header");
+  var backToTop = qs("#back-to-top");
   var onScroll = function () {
     if (window.scrollY > 24) header.classList.add("is-scrolled");
     else header.classList.remove("is-scrolled");
+
+    if (backToTop) {
+      if (window.scrollY > window.innerHeight * 0.6) backToTop.classList.add("is-visible");
+      else backToTop.classList.remove("is-visible");
+    }
   };
   onScroll();
   window.addEventListener("scroll", onScroll, { passive: true });
+
+  /* ---------- Back to top ---------- */
+  if (backToTop) {
+    backToTop.addEventListener("click", function () {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      var heading = qs("#page-top");
+      if (heading) setTimeout(function () { heading.focus({ preventScroll: true }); }, 500);
+    });
+  }
 
   /* ---------- Mobile nav toggle ---------- */
   var toggle = qs("#nav-toggle");
