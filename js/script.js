@@ -200,7 +200,7 @@
       photo: "assets/images/bryan-profile.jpg",
       bio: "Bryan MPAMBARA is a NALEX CEO and driver-guide dedicated to helping travellers enjoy safe, comfortable and memorable journeys. As a guide, he supports customers throughout their travel experience while providing dependable transportation and personal service.",
       facts: [
-        "Position: Guide, NALEX Car Rental &amp; Tours",
+        "Position: CEO &Driver-Guide, NALEX Car Rental &amp; Tours",
         "Direct contact for bookings and journey planning"
       ],
       phone: "0788206126",
@@ -262,12 +262,20 @@
 
     var bookBtn = qs('[data-guide-name]', guideActions);
     if (bookBtn) {
-      bookBtn.addEventListener("click", function () {
+      bookBtn.addEventListener("click", function (e) {
+        // Handle navigation ourselves: a plain href="#contact" click is a
+        // no-op in most browsers when the URL hash is already "#contact"
+        // (e.g. after using the header's "Book Now" link), which made this
+        // button look broken. Always force the scroll instead.
+        e.preventDefault();
         closeBackdrop(guideBackdrop);
         setTimeout(function () {
           if (serviceSelect) serviceSelect.value = "Driver-Guide";
           var guideSelect = qs("#f-guide");
           if (guideSelect) guideSelect.value = g.name;
+          var contactSection = document.getElementById("contact");
+          if (contactSection) contactSection.scrollIntoView({ behavior: "smooth", block: "start" });
+          if (window.history && window.history.pushState) window.history.pushState(null, "", "#contact");
         }, 320);
       });
     }
