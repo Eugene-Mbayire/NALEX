@@ -18,7 +18,7 @@
   if (heroSlides.length > 1) {
     var heroIndex = heroSlides.findIndex(function (el) { return el.classList.contains("is-active"); });
     if (heroIndex < 0) heroIndex = 0;
-    var HERO_INTERVAL = 6000;
+    var HERO_INTERVAL = 3000;
     var heroTimer = null;
 
     var advanceHero = function () {
