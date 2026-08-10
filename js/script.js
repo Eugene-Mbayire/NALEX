@@ -13,6 +13,42 @@
   var yearEl = qs("#year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
+  /* ---------- Hero image carousel: auto-fades, no user interaction needed ---------- */
+  var heroSlides = qsa(".hero-slide");
+  if (heroSlides.length > 1) {
+    var heroIndex = heroSlides.findIndex(function (el) { return el.classList.contains("is-active"); });
+    if (heroIndex < 0) heroIndex = 0;
+    var HERO_INTERVAL = 6000;
+    var heroTimer = null;
+
+    var advanceHero = function () {
+      var next = (heroIndex + 1) % heroSlides.length;
+      heroSlides[heroIndex].classList.remove("is-active");
+      heroSlides[next].classList.add("is-active");
+      heroIndex = next;
+    };
+
+    var startHero = function () {
+      if (heroTimer) return;
+      heroTimer = setInterval(advanceHero, HERO_INTERVAL);
+    };
+    var stopHero = function () {
+      clearInterval(heroTimer);
+      heroTimer = null;
+    };
+
+    // Respect reduced-motion preference: show the first image, no auto-play.
+    var prefersReducedMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (!prefersReducedMotion) startHero();
+
+    // Pause while the tab is hidden — no point animating (or burning battery)
+    // on a page nobody is looking at; resume when it's visible again.
+    document.addEventListener("visibilitychange", function () {
+      if (document.hidden) stopHero();
+      else if (!prefersReducedMotion) startHero();
+    });
+  }
+
   /* ---------- Header scroll state + back-to-top visibility ---------- */
   var header = qs("#site-header");
   var backToTop = qs("#back-to-top");
