@@ -224,10 +224,6 @@
         "Languages: Kinyarwanda &amp; English (fluent), French (fluent), Swahili (intermediate)",
         "Background across corporate fleet, tourism and logistics driving"
       ]
-      // links: {
-      //   linkedin: "https://www.linkedin.com/in/eugene-mbayire-18891b34b",
-      //   portfolio: "https://eugene-mbayire.github.io/my_portfolio_as_driver/"
-      // }
     },
     bryan: {
       name: "Bryan MPAMBARA",
