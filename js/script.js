@@ -196,11 +196,11 @@
     },
     bryan: {
       name: "Bryan MPAMBARA",
-      role: "NALEX CEO & Diver-Guide",
+      role: "CEO",
       photo: "assets/images/bryan-profile.jpg",
       bio: "Bryan MPAMBARA is a NALEX CEO and driver-guide dedicated to helping travellers enjoy safe, comfortable and memorable journeys. As a guide, he supports customers throughout their travel experience while providing dependable transportation and personal service.",
       facts: [
-        "Position: CEO &Driver-Guide, NALEX Car Rental &amp; Tours",
+        "Position: CEO & Driver-Guide, NALEX Car Rental &amp; Tours",
         "Direct contact for bookings and journey planning"
       ],
       phone: "0788206126",
