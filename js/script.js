@@ -222,13 +222,12 @@
       bio: "Eugene MBAYIRE is a professional driver and driver-guide focused on safe, reliable and customer-centred transportation. He combines defensive driving, route planning, customer service and local travel support to help clients enjoy smooth and comfortable journeys — with experience across corporate fleets, tourism and logistics.",
       facts: [
         "Languages: Kinyarwanda &amp; English (fluent), French (fluent), Swahili (intermediate)",
-        "Background across corporate fleet, tourism and logistics driving",
-        "Personal portfolio documents experience, licenses and certifications"
-      ],
-      links: {
-        linkedin: "https://www.linkedin.com/in/eugene-mbayire-18891b34b",
-        portfolio: "https://eugene-mbayire.github.io/my_portfolio_as_driver/"
-      }
+        "Background across corporate fleet, tourism and logistics driving"
+      ]
+      // links: {
+      //   linkedin: "https://www.linkedin.com/in/eugene-mbayire-18891b34b",
+      //   portfolio: "https://eugene-mbayire.github.io/my_portfolio_as_driver/"
+      // }
     },
     bryan: {
       name: "Bryan MPAMBARA",
